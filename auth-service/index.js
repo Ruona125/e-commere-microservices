@@ -13,7 +13,7 @@ mongoose
     `mongodb+srv://ogheneruonaagadagba4:${process.env.PASSWORD}@cluster0.vpgrie7.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() => {
-    console.log("Connected to database!");
+    console.log("auth-service database!");
     app.listen(PORT, () => {
       console.log("server is running on port 8000");
     });

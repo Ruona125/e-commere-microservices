@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
-const PORT = 8001;
+const PORT = 8002;
 const mongoose = require("mongoose");
 const amqp = require("amqplib")
-
-const Product = require("./product")
+const Order = require("./order")
 
 app.use(express.json())
 const jwt = require("jsonwebtoken");
@@ -34,11 +33,11 @@ app.post("/product/create", isAuthenticated, async (req, res) => {
 })
 
 //creating an order with those products and a total value of sum of product's prices
-// app.post("/product/buy", isAuthenticated, async (req, res) =>{
-//   const {ids} = req.body;
-//   const products = await Product.find({_id: {$in: ids}});
-
-// })
+app.post("/product/buy", isAuthenticated, async (req, res) =>{
+  const {ids} = req.body;
+  const products = await Product.find({_id: {$in: ids}});
+  
+})
 
 mongoose
   .connect(
